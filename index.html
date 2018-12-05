@@ -1,39 +1,63 @@
 <html>
-<body>
-  
-<p>This is an example of HTML5 Tag for Video. I chose to do it by sharing a youtube video.</p>
+  <head>
+    <style>
+      testCSSClass {
+        color:red;
+      }
+    </style>
+  </head>
+  <body>
+    <p>This is an example of HTML5 Tag for Video. I chose to do it by sharing a youtube video.</p>
+    
+    <iframe src="https://www.youtube.com/embed/H_oGi8uuDpA" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
 
-  <iframe src="https://www.youtube.com/embed/H_oGi8uuDpA" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe></div>
+    <p>If you want to tag a video that is on your computer you would do so in the following format. <b><i>(Note that this video will not load or be viewed because it is an example and I do not have this video on my computer)</b></i></p>
 
-<p>If you want to tag a video that is on your computer you would do so in the following format. <b><i>(Note that this video will not load or be viewed because it is an example and I do not have this video on my computer)</b></i></p>
+    <p><video src="nameofvideo.mp4" controls></video></p>
 
-  <p>
+    <p>This an example of HTML5 Tag for Audio. It is very similar to video, except that it needs to be in an audio format such as mp3, wav, ogg.</p>
+    
+    <p><b><i>(Note: since I am on my work computer I cannot have a working audio file, if you would like to see a demo of it playing please let me know and I can show it later on tonight.)</i></b></p>
+    
+    <p><audio src="meow_mix.mp3" controls></audio></p>
+    
+    <p><canvas id="myCanvas" width="200" height="100" style="border:1px solid #000000;"></canvas></p>
 
-    <video src=" nameofvideo.mp4" controls></video>
+    <script>
+        document.getElementById("demo").innerHTML = "Hello JavaScript!";
+        
+        //-JavaScript – Loops, Conditional Statements, Functions, Arrays-
+        //Show me examples using the language. This is often just code of code sake. But show me you can use a for loop, switch statement, conditional code. Create and use functions. Iterate through an array. Use and add to an associative array.
+        //-JavaScript – Object Creation Functions, Properties, Methods, Instantiation-
+        //Show me work where you create an object that contains data and functions. Use ‘new’ to create several types of that object, modify the object attributes and call the associated functions
+        //-JSON Parse, Stringify-
+        //Build a JSON object that is MUCH more than { name: “Bob” }. Add attributes to a JSON object. It should include arrays, arrays of JSON sub-objects, numbers and strings.
+        //-Using AJAX to Consume a JSON Web Service-
+        //AJAX is just 6 lines of code. Whether you are getting a basic text file from your server or getting the location of the International Space Station from NASA. It is pretty easy. Find some fun API to use (Weather, satellites, movies)
+        //-Local Storage Storing and Retrieving Arrays, Associative Arrays, and Objects-
+        //See comments on #3 JSON. Storing just a simple string will get zero points.
+        //-DOM Manipulation Using createElement, appendChild, insertBefore etc.-
+        //DOM allows you to find and create/delete elements in your web page. You will need to dynamically add fields to your page, allow those elements to be deleted, and once you have access to that element make changes to a style attribute.
+        //-Manipulating CSS Class Properties Using JavaScript-
+        //It is common to use the onHover CSS feature to do something to a screen elements attributes, you need to learn how to change a style attribute directly using JavaScript.
+        //-CSS3 Transitions and Animations and triggering them with JavaScript-
+        //-JavaScript Events Especially for Mobile Devices (onTouchBegin) and Animation and Transition Events-
+        //There are many many events – key press, mouse, touch, document loaded… You need to experiment with more than just mouse over.
+        //-HTML5 Tags - Video, Audio, and Canvas-
+        //Show me you can imbed and play an audio or video clip. Show me something cool with Canvas (draw a graph, use your finger to finger paint)
+        //Designing, Defining, and Triggering CSS3 Transitions without Custom Libraries
+        //Designing, Defining, and Triggering CSS3 Transforms without Custom Libraries
+        //Designing, Defining, and Triggering CSS3 Animations without Custom Libraries
+        //Custom libraries are like jQuery, Bootstrap and Angular. Learn to use CSS3 directly. Understand what it does and you’ll appreciate the fancy libraries when you use them later.
+        //*You may NOT use jQuery, Bootstrap and similar libraries in this class. Do not ask if you can. If I see a dollar sign in your code I will not grade it.*
 
-  </p> 
+        //https://kentroper.com/cit261/javascript_events.html
+        //https://cit261.erinsmith.codes/objects.html
+        //
+        //https://github.com/salas-michaelle/CIT261        
+        //https://salas-michaelle.github.io/CIT261/index.html
+        
+    </script>
 
-  
-
-<p>
-
-This an example of HTML5 Tag for Audio. It is very similar to video, except that it needs to be in an audio format such as mp3, wav, ogg. <b><i>(Note: since I am on my work computer I cannot have a working audio file, if you would like to see a demo of it playing please let me know and I can show it later on tonight.)</i></b>
-
-<audio src="meow_mix.mp3" controls>
-
-</audio>
-
-</p>
-
- 
-
-<p>
-
-
-
-<canvas id="myCanvas" width="200" height="100" style="border:1px solid #000000;">
-</canvas>
-
-</body>
-</p>
+  </body>
 </html>
