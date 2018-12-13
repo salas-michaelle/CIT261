@@ -1,7 +1,7 @@
 <html>
   <head>
     <style>
-      testCSSClass {
+      .testCSSClass {
         color:red;
       }
     </style>
@@ -23,39 +23,179 @@
     
     <p><canvas id="myCanvas" width="200" height="100" style="border:1px solid #000000;"></canvas></p>
 
+
+    <input id="removeElementBtn" value="Remove Element">
+    <input id="addElementBtn" value="Add Element">
+    <ul id="elementContainer"></ul>
+    
+    <input id=
+
     <script>
-        document.getElementById("demo").innerHTML = "Hello JavaScript!";
-        
         //-JavaScript – Loops, Conditional Statements, Functions, Arrays-
-        //Show me examples using the language. This is often just code of code sake. But show me you can use a for loop, switch statement, conditional code. Create and use functions. Iterate through an array. Use and add to an associative array.
+        // Use a for loop
+        var i;
+        for (i = 1; i <= 3; i++) { 
+          console.log("For loop print #" + i);
+        }
+        
+        // Switch statement,
+        var text = "Orange";
+        switch(text) {
+            case "Banana":
+                console.log("Switch for 'Banana'");
+                break;
+            case "Orange":
+                console.log("Switch for 'Orange'");
+                break;
+            case "Apple":
+                console.log("Switch for 'Apple'");
+                break;
+            default:
+                console.log("Default switch...");
+        }
+        
+        // Conditional code.
+        if (true) {
+          console.log("True condition evaluated...");
+        } else {
+          console.log("False condition not evaluated...");
+        }
+        
+        // Create and use functions.
+        function myFunction(firstName, lastName) {
+          return "Hello, " + firstName + " " + lastName + "!";
+        }
+        console.log(myFunction("Michaelle", "Salas"));
+        
+        // Iterate through an array.
+        var myStringArray = ["Elements","of", "an", "array"];
+        for (var i = 0; i < myStringArray.length; i++) {
+            console.log("Element of array at index #" + i + ": " + myStringArray[i]);
+        }
+        
+        // Use and add to an associative array.
+        // JavaScript just uses objects.
+        var associativeArray = [];
+        associativeArray["type"] = "Associative Array";
+        associativeArray["flavor"] = "Strawberry";
+        console.log("Object type: " + associativeArray["type"]);
+        console.log("Object flavor: " + associativeArray["flavor"]);
+        
         //-JavaScript – Object Creation Functions, Properties, Methods, Instantiation-
-        //Show me work where you create an object that contains data and functions. Use ‘new’ to create several types of that object, modify the object attributes and call the associated functions
+        // Create an object that contains data and functions.
+        function Person(fname, lname){
+          this.firstName = fname;
+          this.lastName = lname;
+          this.getDescription = function() {
+            return "Person object with firstName: " + this.firstName + " and lastName: " + this.lastName;
+          };
+        }
+        
+        var myFather = new Person("John", "Doe");
+        console.log(myFather.getDescription());
+        
+        // Use ‘new’ to create several types of that object,
+        var myMother = new Person("Jane", "Doe");
+        var yourMother = new Person("Mother", "Theresa");
+        
+        // Modify the object attributes and call the associated functions
+        myMother.firstName = "Saint";
+        myMother.lastName = "Angel";
+        console.log(myMother.getDescription());
+        
         //-JSON Parse, Stringify-
-        //Build a JSON object that is MUCH more than { name: “Bob” }. Add attributes to a JSON object. It should include arrays, arrays of JSON sub-objects, numbers and strings.
+        // Build a JSON object that is MUCH more than { name: “Bob” }.
+        // Add attributes to a JSON object.
+        // It should include arrays, arrays of JSON sub-objects, numbers and strings.
+        var muchMoreThanBob = {
+          name: "Bob",
+          weight: "Thick",
+          children: ["Patty", "Selma", "Jordan"],
+          hobbies: {
+            airplanes: ["747", "A-10 Warthog", "F-16"],
+            favoriteFibonaccis: [1, 2, 3, 5, 8]
+          }
+        };
+        console.log(muchMoreThanBob.name + "'s first child is named: " + muchMoreThanBob.children[0]);
+        
+        muchMoreThanBob.addedAttribute = "New Attribute";
+        console.log(muchMoreThanBob.name + " loves his new attribute: " + muchMoreThanBob.addedAttribute);
+        
         //-Using AJAX to Consume a JSON Web Service-
-        //AJAX is just 6 lines of code. Whether you are getting a basic text file from your server or getting the location of the International Space Station from NASA. It is pretty easy. Find some fun API to use (Weather, satellites, movies)
-        //-Local Storage Storing and Retrieving Arrays, Associative Arrays, and Objects-
-        //See comments on #3 JSON. Storing just a simple string will get zero points.
+        // Find some fun API to use (Weather, satellites, movies)
+        var HttpClient = function() {
+            this.get = function(aUrl, aCallback) {
+                var anHttpRequest = new XMLHttpRequest();
+                anHttpRequest.onreadystatechange = function() { 
+                    if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                        aCallback(anHttpRequest.responseText);
+                };
+        
+                anHttpRequest.open( "GET", aUrl, true );            
+                anHttpRequest.send( null );
+            };
+        };
+        
+        function pokemonFinishedLoading(pokemon) {
+          console.log("Web service says Pokemon ability for Ditto is: " + pokemon.abilities[0].ability.name);
+        }
+        
+        var pokemon = localStorage.getItem(pokemon);
+        if (!pokemon) {
+          var client = new HttpClient();
+          client.get("https://pokeapi.co/api/v2/pokemon/ditto/", function(response) {
+              // do something with response
+              var pokemon = JSON.parse(response);            
+              
+              //-Local Storage Storing and Retrieving Arrays, Associative Arrays, and Objects-
+              // See comments on #3 JSON. Storing just a simple string will get zero points.
+              localStorage.setItem("pokemon", pokemon);
+              pokemonFinishedLoading(pokemon);
+          });
+        } else {
+          pokemonFinishedLoading(pokemon);
+        }
+        
         //-DOM Manipulation Using createElement, appendChild, insertBefore etc.-
-        //DOM allows you to find and create/delete elements in your web page. You will need to dynamically add fields to your page, allow those elements to be deleted, and once you have access to that element make changes to a style attribute.
+        var elementContainer = document.getElementById("elementContainer");
+        
+        // You will need to dynamically add elements to your page,
+        var addElementBtn = document.getElementById("addElementBtn");
+        addElementBtn.addEventListener("click", function(){
+            var el =  document.createElement("li");
+            el.innerHTML = "" + elementContainer.childNodes.length;
+            
+            // Once you have access to that element make changes to a style attribute.
+            el.style.color = "red";
+            elementContainer.appendChild(el);
+        });
+        
+        // Allow those elements to be deleted,
+        var removeElementBtn = document.getElementById("removeElementBtn");
+        removeElementBtn.addEventListener("click", function(){
+          if (elementContainer.childNodes.length > 0) {
+            elementContainer.removeChild(elementContainer.childNodes[elementContainer.childNodes.length - 1]);
+          }
+        });
+        
         //-Manipulating CSS Class Properties Using JavaScript-
-        //It is common to use the onHover CSS feature to do something to a screen elements attributes, you need to learn how to change a style attribute directly using JavaScript.
+        // Use the onHover CSS feature to do something to a screen elements attributes.
+        // Change a style attribute directly using JavaScript.
+        
         //-CSS3 Transitions and Animations and triggering them with JavaScript-
         //-JavaScript Events Especially for Mobile Devices (onTouchBegin) and Animation and Transition Events-
-        //There are many many events – key press, mouse, touch, document loaded… You need to experiment with more than just mouse over.
+        // There are many many events – key press, mouse, touch, document loaded… You need to experiment with more than just mouse over.
+        
         //-HTML5 Tags - Video, Audio, and Canvas-
-        //Show me you can imbed and play an audio or video clip. Show me something cool with Canvas (draw a graph, use your finger to finger paint)
-        //Designing, Defining, and Triggering CSS3 Transitions without Custom Libraries
-        //Designing, Defining, and Triggering CSS3 Transforms without Custom Libraries
-        //Designing, Defining, and Triggering CSS3 Animations without Custom Libraries
-        //Custom libraries are like jQuery, Bootstrap and Angular. Learn to use CSS3 directly. Understand what it does and you’ll appreciate the fancy libraries when you use them later.
-        //*You may NOT use jQuery, Bootstrap and similar libraries in this class. Do not ask if you can. If I see a dollar sign in your code I will not grade it.*
+        // Show me you can imbed and play an audio or video clip. Show me something cool with Canvas (draw a graph, use your finger to finger paint)
+        // Designing, Defining, and Triggering CSS3 Transitions without Custom Libraries
+        // Learn to use CSS3 directly.
 
-        //https://kentroper.com/cit261/javascript_events.html
-        //https://cit261.erinsmith.codes/objects.html
-        //
-        //https://github.com/salas-michaelle/CIT261        
-        //https://salas-michaelle.github.io/CIT261/index.html
+        // https://kentroper.com/cit261/javascript_events.html
+        // https://cit261.erinsmith.codes/objects.html
+        
+        // https://github.com/salas-michaelle/CIT261        
+        // https://salas-michaelle.github.io/CIT261/index.html
         
     </script>
 
