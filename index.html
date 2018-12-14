@@ -28,8 +28,6 @@
     <input id="addElementBtn" value="Add Element">
     <ul id="elementContainer"></ul>
     
-    <input id=
-
     <script>
         //-JavaScript – Loops, Conditional Statements, Functions, Arrays-
         // Use a for loop
@@ -163,7 +161,7 @@
         var addElementBtn = document.getElementById("addElementBtn");
         addElementBtn.addEventListener("click", function(){
             var el =  document.createElement("li");
-            el.innerHTML = "" + elementContainer.childNodes.length;
+            el.innerHTML = "Element #" + elementContainer.childNodes.length;
             
             // Once you have access to that element make changes to a style attribute.
             el.style.color = "red";
