@@ -1,0 +1,21 @@
+  //-DOM Manipulation Using createElement, appendChild, insertBefore etc.-
+        var elementContainer = document.getElementById("elementContainer");
+        
+        // You will need to dynamically add elements to your page,
+        var addElementBtn = document.getElementById("addElementBtn");
+        addElementBtn.addEventListener("click", function(){
+            var el =  document.createElement("li");
+            el.innerHTML = "Element #" + elementContainer.childNodes.length;
+            
+            // Once you have access to that element make changes to a style attribute.
+            el.style.color = "red";
+            elementContainer.appendChild(el);
+        });
+        
+        // Allow those elements to be deleted,
+        var removeElementBtn = document.getElementById("removeElementBtn");
+        removeElementBtn.addEventListener("click", function(){
+          if (elementContainer.childNodes.length > 0) {
+            elementContainer.removeChild(elementContainer.childNodes[elementContainer.childNodes.length - 1]);
+          }
+        });
