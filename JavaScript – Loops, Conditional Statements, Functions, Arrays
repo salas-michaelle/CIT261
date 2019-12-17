@@ -1,0 +1,77 @@
+<input id="removeElementBtn" value="Remove Element">
+    <input id="addElementBtn" value="Add Element">
+    <ul id="elementContainer"></ul>
+    
+    <script>
+        //-JavaScript – Loops, Conditional Statements, Functions, Arrays-
+        // Use a for loop
+        var i;
+        for (i = 1; i <= 3; i++) { 
+          console.log("For loop print #" + i);
+        }
+        
+        // Switch statement,
+        var text = "Orange";
+        switch(text) {
+            case "Banana":
+                console.log("Switch for 'Banana'");
+                break;
+            case "Orange":
+                console.log("Switch for 'Orange'");
+                break;
+            case "Apple":
+                console.log("Switch for 'Apple'");
+                break;
+            default:
+                console.log("Default switch...");
+        }
+        
+        // Conditional code.
+        if (true) {
+          console.log("True condition evaluated...");
+        } else {
+          console.log("False condition not evaluated...");
+        }
+        
+        // Create and use functions.
+        function myFunction(firstName, lastName) {
+          return "Hello, " + firstName + " " + lastName + "!";
+        }
+        console.log(myFunction("Michaelle", "Salas"));
+        
+        // Iterate through an array.
+        var myStringArray = ["Elements","of", "an", "array"];
+        for (var i = 0; i < myStringArray.length; i++) {
+            console.log("Element of array at index #" + i + ": " + myStringArray[i]);
+        }
+        
+        // Use and add to an associative array.
+        // JavaScript just uses objects.
+        var associativeArray = [];
+        associativeArray["type"] = "Associative Array";
+        associativeArray["flavor"] = "Strawberry";
+        console.log("Object type: " + associativeArray["type"]);
+        console.log("Object flavor: " + associativeArray["flavor"]);
+        
+        //-JavaScript – Object Creation Functions, Properties, Methods, Instantiation-
+        // Create an object that contains data and functions.
+        function Person(fname, lname){
+          this.firstName = fname;
+          this.lastName = lname;
+          this.getDescription = function() {
+            return "Person object with firstName: " + this.firstName + " and lastName: " + this.lastName;
+          };
+        }
+        
+        var myFather = new Person("John", "Doe");
+        console.log(myFather.getDescription());
+        
+        // Use ‘new’ to create several types of that object,
+        var myMother = new Person("Jane", "Doe");
+        var yourMother = new Person("Mother", "Theresa");
+        
+        // Modify the object attributes and call the associated functions
+        myMother.firstName = "Saint";
+        myMother.lastName = "Angel";
+        console.log(myMother.getDescription());
+        
