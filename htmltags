@@ -1,0 +1,23 @@
+<html>
+  <head>
+    <style>
+      .testCSSClass {
+        color:red;
+      }
+    </style>
+  </head>
+  <body>
+    <p>This is an example of HTML5 Tag for Video. I chose to do it by sharing a youtube video.</p>
+    
+    <iframe src="https://www.youtube.com/embed/H_oGi8uuDpA" width="560" height="315" frameborder="0" allowfullscreen="allowfullscreen"></iframe>
+ 
+    <p>If you want to tag a video that is on your computer you would do so in the following format. <b><i>(Note that this video will not load or be viewed because it is an example and I do not have this video on my computer)</b></i></p>
+ 
+    <p><video src="nameofvideo.mp4" controls></video></p>
+ 
+    <p>This an example of HTML5 Tag for Audio. It is very similar to video, except that it needs to be in an audio format such as mp3, wav, ogg.</p>
+    
+    
+    <p><audio src="meow_mix.mp3" controls></audio></p>
+    
+    <p><canvas id="myCanvas" width="200" height="100" style="border:1px solid #000000;"></canvas></p>
