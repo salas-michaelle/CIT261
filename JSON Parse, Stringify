@@ -1,0 +1,43 @@
+//-JSON Parse, Stringify-
+        // Build a JSON object that is MUCH more than { name: “Bob” }.
+        // Add attributes to a JSON object.
+        // It should include arrays, arrays of JSON sub-objects, numbers and strings.
+        var muchMoreThanBob = {
+          name: "Bob",
+          weight: "Thick",
+          children: ["Patty", "Selma", "Jordan"],
+          hobbies: {
+            airplanes: ["747", "A-10 Warthog", "F-16"],
+            favoriteFibonaccis: [1, 2, 3, 5, 8]
+          }
+        };
+        console.log(muchMoreThanBob.name + "'s first child is named: " + muchMoreThanBob.children[0]);
+        
+        muchMoreThanBob.addedAttribute = "New Attribute";
+        console.log(muchMoreThanBob.name + " loves his new attribute: " + muchMoreThanBob.addedAttribute);
+        
+        //-Using AJAX to Consume a JSON Web Service-
+        // Find some fun API to use (Weather, satellites, movies)
+        var HttpClient = function() {
+            this.get = function(aUrl, aCallback) {
+                var anHttpRequest = new XMLHttpRequest();
+                anHttpRequest.onreadystatechange = function() { 
+                    if (anHttpRequest.readyState == 4 && anHttpRequest.status == 200)
+                        aCallback(anHttpRequest.responseText);
+                };
+        
+                anHttpRequest.open( "GET", aUrl, true );            
+                anHttpRequest.send( null );
+            };
+        };
+        
+        function pokemonFinishedLoading(pokemon) {
+          console.log("Web service says Pokemon ability for Ditto is: " + pokemon.abilities[0].ability.name);
+        }
+        
+        var pokemon = localStorage.getItem(pokemon);
+        if (!pokemon) {
+          var client = new HttpClient();
+          client.get("https://pokeapi.co/api/v2/pokemon/ditto/", function(response) {
+              // do something with response
+              var pokemon = JSON.parse(response);            
