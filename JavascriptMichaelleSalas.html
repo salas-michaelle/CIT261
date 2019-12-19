@@ -1,0 +1,128 @@
+
+
+
+<!DOCTYPE HTML>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <title>JavaScript</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/index.css">
+    
+    <script>
+		function whileCount(){
+			var i = 0;
+			while (i < 10) {
+    		document.getElementById("whileLoop").innerHTML += i + "<br>";
+    			i++;
+			}
+		}
+		function forCount(){
+			var text = "";
+			var i;
+			for (i = 1; i < 10; i = i + 2){
+				text += i + "<br>";
+				}
+			document.getElementById("forLoop").innerHTML = text;
+		}
+		function clickForPoem() {
+  			var text;
+  			var poem = document.getElementById("poemInput").value;
+ 		switch(poem) {
+  			  case "poem 1":
+      			text = "Roses are red, violets are blue, Javascript is cool and so are you!";
+      			break;
+    		case "poem 2":
+      			text = "My code fails. I do not know why. My code works. I do not know why.";
+      			break;
+    		case "poem 3":
+      			text = "Hold my breath, click "Build", All tests display green checkmarks, Git add, commit, push";
+      			break;
+			default:
+      			text = "Sorry, I have never heard of that poem.";
+  			}
+  		document.getElementById("poemSwitch").innerHTML = text;
+		}
+		
+		
+		function myFunction() {
+    		var greeting;
+    		var poem = document.getElementById("poemInput").value;
+    		if (poem == "poem 1") {
+        		greeting = "Roses are red, violets are blue, Javascript is cool and so are you!";
+    		} else if (poem == "poem 2") {
+        		greeting = "My code fails. I do not know why. My code works. I do not know why.";
+    		} else if (poem == "poem 3") {
+    			greeting = "Hold my breath, click "Build", All tests display green checkmarks, Git add, commit, push";
+    		} else {
+        		greeting = "Didn't your mother ever teach you to follow directions?";
+    		}
+		document.getElementById("poemCondition").innerHTML = greeting;
+		}
+</script>
+  </head>
+
+  <body>
+   <div id="header">
+        <header>
+            <h1>Michaelle Salas</h1>
+        </header>
+      </div>
+        <nav>
+			<a href="index.html">Home</a>
+        </nav>
+
+    <div id="main">
+    <main>
+      <h2 class="adjustment"><strong>JavaScript</strong></h2>
+      <div>
+      	<h3>Loops</h3>
+      	
+      	<!-- While Loop -->
+      	<p id="whileLoop"><b><i>Count to ten by clicking below.</i></b></br></p>
+      	<button type="button" onclick="whileCount()">Click Here</button>
+      	<br>
+      	
+      	<!-- For Loop -->
+      	<p id="forLoop"><b><i>Show just the odd numbers from the above list.</i></b></br></p>
+      	<button type="button" onclick="forCount()">Click Here</button>
+      	<br>
+      	<br>
+      	<hr>
+      	
+      	<!-- Switch -->
+      	<br>
+      	<h3>Switch</h3>
+      	<p>Please enter either <b>poem 1, poem 2,</b> or <b>poem 3</b>. Enter something else if you dare.</p>
+      	<input id="poemInput" type="text" value="poem 1">
+		<button onclick="clickForPoem();myFunction()">Click for a poem</button>
+		<p id="poemSwitch"></p>
+		<br>
+		<br>
+		<hr>
+		
+		<!-- IF -->
+		<br>
+		<h3>Conditional</h3>
+		<p><i>Below you will find an "if" statement dependent on the above</i></p>
+			<!-- <button onclick="myFunction()">Try it</button> -->
+			<p id="poemCondition"></p>
+		
+      	
+      	
+      </div>
+    
+    </main>
+    </div> <!-- div id=main close -->
+
+   <div id="footer">
+        <footer>
+          <p> Michaelle Salas &copy;2019 <br></p>
+          <p><a href="https://github.com/salas-michaelle/CIT360">michaellesalas.com</a></p>
+        </footer>
+      </div>
+    <script src="scripts/modernizr-custom.js"></script>
+    <script src="scripts/functions.js"></script>
+  </body>
+</html>
