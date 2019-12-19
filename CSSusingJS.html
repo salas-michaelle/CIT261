@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>CSS Manipulation with JavaScript </title>
+    <meta name="description" content="CIT 261 CSS Manipulation with JavaScript">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="styles/normalize.css">
+    <link rel="stylesheet" href="styles/index.css">
+    
+    <style>
+        #text {
+            width: 450px;
+            height: 30px;
+            color: orange;
+            background-color: lightblue;
+        }
+        #changeText {
+        	color: red;
+        	}
+    </style>
+</head>
+<body>
+    <div id="header">
+        <header>
+            <h1>Michaelle Salas</h1>
+        </header>
+      </div>
+        
+        
+    <h2>Manipulate CSS Class using JavaScript</h2>
+    <p>CSS Class can be changed using DOM in JavaScript.</p>
+    <hr />
+    <h3>Change basic HTML Style</h3>
+    <div id="text" onclick="changeColor()">Please <em><b>click me</b></em> for a surprise.</div>
+    <button type="button" onclick="hideMe()">Hide</button>
+    <button type="button" onclick="showMe()">Show</button>
+    <script>
+        
+        var i = 0;
+        var colors = ['blue', 'red', 'gold', 'orange', 'purple'];
+        var fonts = ['Sans-serif', 'Verdana', 'Times New Roman', 'Courier New', 'Lucida Console'];
+        var bgcolors = ['red', 'gold', 'green', 'purple', 'teal'];
+        function changeColor() {
+            if (i > colors.length) { i = 0; }
+            document.getElementById("text").style.color = colors[i];
+            document.getElementById("text").style.fontFamily = fonts[i];
+            document.getElementById("text").style.backgroundColor = bgcolors[i];
+            ++i;
+        }
+        function hideMe() {
+            document.getElementById("text").style.visibility = "hidden";
+        }
+        function showMe() {
+            document.getElementById("text").style.visibility = "visible";
+        }
+    </script>
+    <hr />
+    <h3>Change div text with mouseover and mouseout</h3>
+    <div onmouseover="mOver(this)" onmouseout="mOut(this)"
+         style="background-color:#25a1af;width:200px;height:50px;padding:10px;">
+        Hover Over Me
+    </div>
+
+    <script>
+        function mOver(obj) {
+            obj.innerHTML = "Get Off Me!"
+            obj.style.width = "240px";
+            obj.style.height = "40px";
+            obj.style.color = "white"
+        }
+        function mOut(obj) {
+            obj.innerHTML = "Hover Over Me"
+            obj.style.width = "200px";
+            obj.style.height = "50px";
+            obj.style.color = "red";
+        }
+    </script>
+
+    <hr />
+    <h3>Update content of text box using onchange</h3>
+    <p>Enter a word below in lowercase letters</p>
+    <p id="changeText"></p>
+    <input type="text" id="fname" onchange="upperCase()">
+    <script>
+        function upperCase() {
+            var input = document.getElementById("fname");
+            input.value = input.value.toUpperCase();
+            document.getElementById("changeText").innerHTML = "It's all about upperCase letters";
+        }
+    </script>
+    <div id="footer">
+        <footer>
+          <p> Michaelle Salas &copy;2019 <br></p>
+          <p><a href="https://github.com/salas-michaelle/CIT360">MichaelleSalas.com</a></p>
+        </footer>
+      </div>
+
+</body>
+</html>
