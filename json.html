@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+  <html lang="en-US">
+    <head>
+      <meta charset="utf-8">
+<!--This meta tag provides control over the width and scale of the page in the browser -->
+      <meta name="viewport" content="width=device-width, initial-scale=1">
+      <title>Michaelle | JSON</title>
+      <meta name="description" content="CIT 261">
+      <link rel="stylesheet" href="styles/index.css">
+      <link rel="stylesheet" href="styles/normalize.css">
+      <link href="celebs.json">
+      
+      <script>
+				
+			function findCount() {
+				var celebs = new XMLHttpRequest();
+				celebs.open('GET','http://api.open-notify.org/celebs.json', true);
+				
+				celebs.onload = function() {
+					if(this.status == 200) {
+						var cel = JSON.parse(this.responseText);
+						
+						var output = '';
+          					for(i in cel.people) {
+            					output +=
+              						'<div class="cel">' +
+              						'<h3>Name: '+cel.people[i].name+'</h3>'+
+              						'<h5>Age: '+cel.people[i].craft+'</h5>'+
+              						'</div>';
+              					
+              					}
+						
+						document.getElementById('fillInfo').innerHTML = output;
+					}
+				}
+				
+				celebs.send();
+			}
+			
+			
+			</script>
+    </head>
+
+    <body>
+    		
+			
+      <div id="header">
+        <header>
+        	
+        	<h3><a href="index.html">Home</a></h3>
+            <h1>Michaelle Salas</h1>
+        </header>
+      </div>
+        <nav>
+
+        </nav>
+
+        <div id="main">
+        <main>
+          <h2>CIT 261 - JSON</h2><br>
+				<h4 id="subject_title">Who is in Hollywood right now?</h3>
+				<button id="Celebrity" onclick="findCount()">Show Celebrities</button>
+				<br>
+				<div id="fillInfo"></div>
+				
+				
+				
+				
+        </main>
+
+      </div> <!-- div id=main close-->
+
+      <div id="footer">
+        <footer>
+          <p> Michaelle Salas &copy;2019 <br></p>
+          <p><a href="https://github.com/salas-michaelle/CIT360">MichaelleSalas.com</a></p>
+        </footer>
+      </div>
+
+    </body>
+ </html>
